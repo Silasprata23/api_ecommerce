@@ -44,6 +44,7 @@ public class PedidoService {
 
         
     }
+
     public void deletarPedido(Integer id){
         Pedido pedido = pedidoRepository.findById(id).orElseThrow(()-> new RuntimeException("Produto não encontrado"));
         pedidoRepository.delete(pedido);

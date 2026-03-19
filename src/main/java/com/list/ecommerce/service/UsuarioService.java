@@ -68,10 +68,11 @@ public class UsuarioService {
         );
     }
 
-    public void deletarUsuario(Integer id) {
+    public ResponseEntity<?> deletarUsuario(Integer id) {
 
      Usuario usuario =  usuarioRepository.findById(id).orElseThrow(()-> new RuntimeException("Usuario não encontrado"));
      usuarioRepository.delete(usuario);
+        return null;
     }
 
     public UsuarioResponse atualizarUsuario(Integer id,UsuarioRequest usuarioRequest) {

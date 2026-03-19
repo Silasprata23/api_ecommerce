@@ -31,8 +31,25 @@ public class UsuarioController {
         return usuarioService.listarTodosUsuarios();
     }
 
+    @GetMapping(value = "Listarpor{id}")
+    public ResponseEntity<UsuarioResponse> buscarporid(@PathVariable Integer id){
 
-    public ResponseEntity<>
+        UsuarioResponse response = usuarioService.listarUsuarios(id);
+
+        return ResponseEntity.ok(response);
+    }
+    @DeleteMapping(value = "/deletar{id}")
+    public ResponseEntity<?> deletarPorid(@PathVariable Integer id){
+        return usuarioService.deletarUsuario(id);
+    }
+
+    public ResponseEntity<UsuarioResponse> atualizarUsuario(@PathVariable Integer id,@RequestBody UsuarioRequest usuarioRequest){
+
+      UsuarioResponse response = usuarioService.atualizarUsuario(id, usuarioRequest);
+
+        return ResponseEntity.ok(response);
+
+    }
 
     }
 
