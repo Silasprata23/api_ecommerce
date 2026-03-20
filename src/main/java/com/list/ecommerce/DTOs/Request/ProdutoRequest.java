@@ -1,4 +1,4 @@
-package com.list.ecommerce.DTOs;
+package com.list.ecommerce.DTOs.Request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,14 +7,16 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class ProdutoResponse {
+@AllArgsConstructor
+public class ProdutoRequest {
 
 
-    private long idProduto;
     private String NomeProduto;
     private String DescricaoProduto;
     private double preco;
     private String imgUrl;
+
+
+
 }

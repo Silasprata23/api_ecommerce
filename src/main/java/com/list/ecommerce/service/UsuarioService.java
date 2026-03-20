@@ -1,7 +1,7 @@
 package com.list.ecommerce.service;
 
-import com.list.ecommerce.DTOs.UsuarioRequest;
-import com.list.ecommerce.DTOs.UsuarioResponse;
+import com.list.ecommerce.DTOs.Request.UsuarioRequest;
+import com.list.ecommerce.DTOs.Response.UsuarioResponse;
 import com.list.ecommerce.entity.Usuario;
 import com.list.ecommerce.repository.UsuarioRepository;
 import org.springframework.http.ResponseEntity;

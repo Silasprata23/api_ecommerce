@@ -1,4 +1,4 @@
-package com.list.ecommerce.DTOs;
+package com.list.ecommerce.DTOs.Response;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,9 +9,10 @@ import java.time.Instant;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class PagamentoRequest {
+@AllArgsConstructor
+public class PagamentoResponse {
 
-    private Instant Momento;
+    private long idPagamneto;
+    private Instant MomentoPagamento;
 }

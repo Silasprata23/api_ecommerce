@@ -1,4 +1,4 @@
-package com.list.ecommerce.DTOs;
+package com.list.ecommerce.DTOs.Request;
 
 import com.list.ecommerce.entity.Pedido;
 import jakarta.validation.constraints.Email;
@@ -25,7 +25,7 @@ public class UsuarioRequest {
     private String email;
     @NotBlank(message = "O campo não pode estar vazio")
     private String senha;
-    private Role roles;
+    private List<Role> roles;
     private String telefone;
     private List<Pedido> pedidos = new ArrayList<>();
 }

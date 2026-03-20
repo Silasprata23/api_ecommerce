@@ -1,18 +1,10 @@
 package com.list.ecommerce.service;
 
-import com.list.ecommerce.DTOs.PedidoRequest;
-import com.list.ecommerce.DTOs.PedidoResponse;
-import com.list.ecommerce.DTOs.UsuarioResponse;
+import com.list.ecommerce.DTOs.Response.PedidoResponse;
 import com.list.ecommerce.entity.Pedido;
-import com.list.ecommerce.entity.Produto;
-import com.list.ecommerce.entity.Usuario;
 import com.list.ecommerce.repository.PedidoRepository;
-import com.list.ecommerce.repository.ProdutoRepository;
 import com.list.ecommerce.repository.UsuarioRepository;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class PedidoService {

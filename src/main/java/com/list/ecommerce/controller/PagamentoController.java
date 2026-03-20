@@ -1,7 +1,7 @@
 package com.list.ecommerce.controller;
 
-import com.list.ecommerce.DTOs.PagamentoRequest;
-import com.list.ecommerce.DTOs.PagamentoResponse;
+import com.list.ecommerce.DTOs.Request.PagamentoRequest;
+import com.list.ecommerce.DTOs.Response.PagamentoResponse;
 import com.list.ecommerce.service.PagamentoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

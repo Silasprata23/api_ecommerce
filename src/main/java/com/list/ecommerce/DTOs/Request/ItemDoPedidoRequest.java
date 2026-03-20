@@ -1,19 +1,21 @@
-package com.list.ecommerce.DTOs;
+package com.list.ecommerce.DTOs.Request;
 
-import com.list.ecommerce.entity.ItemDoPedido;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.UUID;
+
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+public class ItemDoPedidoRequest {
 
-public class ItemDoPedidoResponse {
 
-    private Integer quantidade;
+    private UUID idProduto;
+    private UUID idCategoria;
     private Double preco;
-    private ItemDoPedido itemDoPedido;
+    private Integer quantidade;
 }
