@@ -24,25 +24,25 @@ public class ProdutoController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping(value = "/listarTodos")
+    @GetMapping(value = "/listarTodosProduto")
     public List<ProdutoResponse> listarTodos(){
         return produtoService.listarProdutos();
     }
 
 
-    @GetMapping(value = "/listarPor{id}")
+    @GetMapping(value = "/listarProdutoPor{id}")
     public ResponseEntity<ProdutoResponse> listarPorid (@PathVariable Integer id){
         ProdutoResponse response = produtoService.listarporId(id);
         return ResponseEntity.ok(response);
     }
 
-    @DeleteMapping(value = "/deletar{id}")
+    @DeleteMapping(value = "/deletarProduto{id}")
     public void deletar(@PathVariable Integer id){
         produtoService.deletarProduto(id);
     }
 
 
-    @PutMapping(value = "/atualizar{id}")
+    @PutMapping(value = "/atualizarProduto{id}")
     public ResponseEntity<ProdutoResponse> atualizarproduto(@PathVariable Integer id, @RequestBody ProdutoRequest produtoRequest){
         ProdutoResponse response = produtoService.atualizarProduto(id, produtoRequest);
         return ResponseEntity.ok(response);

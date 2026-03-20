@@ -4,6 +4,7 @@ import com.list.ecommerce.DTOs.PagamentoRequest;
 import com.list.ecommerce.DTOs.PagamentoResponse;
 import com.list.ecommerce.service.PagamentoService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,7 +25,7 @@ public class PagamentoController {
         return ResponseEntity.ok(response);
 
     }
-
+    @GetMapping(value = "/buscarpedidoPor{id}")
     public ResponseEntity<PagamentoResponse> buscarPedido(@PathVariable Integer id){
         PagamentoResponse response = pagamentoService.buscarPagamento(id);
         return ResponseEntity.ok(response);

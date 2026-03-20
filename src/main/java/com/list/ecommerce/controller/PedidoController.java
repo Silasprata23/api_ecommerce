@@ -18,7 +18,7 @@ public class PedidoController {
         this.pedidoService = pedidoService;
     }
 
-    @GetMapping(value = "/BuscarPediso{id}")
+    @GetMapping(value = "/BuscarPedido{id}")
     public ResponseEntity<PedidoResponse> buscarPedido(@PathVariable Integer id){
         PedidoResponse response = pedidoService.buscarPedidos(id);
         return ResponseEntity.ok(response);

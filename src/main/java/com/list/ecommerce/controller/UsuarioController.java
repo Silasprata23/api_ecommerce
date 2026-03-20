@@ -26,19 +26,19 @@ public class UsuarioController {
     }
 
 
-    @GetMapping(value = "/Listartodos")
+    @GetMapping(value = "/ListartodosUsuario")
     public List<UsuarioResponse> listarTodos(){
         return usuarioService.listarTodosUsuarios();
     }
 
-    @GetMapping(value = "Listarpor{id}")
+    @GetMapping(value = "ListarUsuariopor{id}")
     public ResponseEntity<UsuarioResponse> buscarporid(@PathVariable Integer id){
 
         UsuarioResponse response = usuarioService.listarUsuarios(id);
 
         return ResponseEntity.ok(response);
     }
-    @DeleteMapping(value = "/deletar{id}")
+    @DeleteMapping(value = "/deletarUsuario{id}")
     public ResponseEntity<?> deletarPorid(@PathVariable Integer id){
         return usuarioService.deletarUsuario(id);
     }
