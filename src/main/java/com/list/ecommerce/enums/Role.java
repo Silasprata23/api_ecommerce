@@ -1,4 +1,4 @@
-package com.list.ecommerce.entity;
+package com.list.ecommerce.enums;
 
 public enum Role {
     AGUARDANDO_PEDIDO,

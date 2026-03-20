@@ -1,6 +1,6 @@
 package com.list.ecommerce.controller;
 
-import com.list.ecommerce.DTOs.PedidoResponse;
+import com.list.ecommerce.DTOs.Response.PedidoResponse;
 import com.list.ecommerce.service.PedidoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;

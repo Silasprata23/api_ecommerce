@@ -1,6 +1,6 @@
-package com.list.ecommerce.DTOs;
+package com.list.ecommerce.DTOs.Response;
 
-import com.list.ecommerce.entity.StatusDoPedido;
+import com.list.ecommerce.enums.StatusDoPedido;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

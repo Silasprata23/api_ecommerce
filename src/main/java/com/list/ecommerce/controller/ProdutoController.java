@@ -1,7 +1,7 @@
 package com.list.ecommerce.controller;
 
-import com.list.ecommerce.DTOs.ProdutoRequest;
-import com.list.ecommerce.DTOs.ProdutoResponse;
+import com.list.ecommerce.DTOs.Request.ProdutoRequest;
+import com.list.ecommerce.DTOs.Response.ProdutoResponse;
 import com.list.ecommerce.service.ProdutoService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
