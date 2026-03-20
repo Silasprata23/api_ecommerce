@@ -12,7 +12,7 @@ import java.time.Instant;
 public class Pagamento {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idPagamento;
     private Instant MomentoPagamento;
 
