@@ -13,8 +13,8 @@ public class ProdutoResponse {
 
 
     private long idProduto;
-    private String NomeProduto;
-    private String DescricaoProduto;
+    private String nomeProduto;
+    private String descricaoProduto;
     private double preco;
     private String imgUrl;
 }

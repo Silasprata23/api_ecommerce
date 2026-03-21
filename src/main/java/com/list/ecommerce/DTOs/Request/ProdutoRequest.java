@@ -12,8 +12,8 @@ import lombok.Setter;
 public class ProdutoRequest {
 
 
-    private String NomeProduto;
-    private String DescricaoProduto;
+    private String nomeProduto;
+    private String descricaoProduto;
     private double preco;
     private String imgUrl;
 
