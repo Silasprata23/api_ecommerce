@@ -17,19 +17,21 @@ public class ProdutoService {
         this.produtoRepository = produtoRepository;
     }
 
-    //Post
-    public ProdutoResponse criarProduto(Integer id,ProdutoRequest produtoRequest){
-        Optional<Produto>produtoExistente = produtoRepository.findById(id);
+
+    public ProdutoResponse criarProduto(ProdutoRequest produtoRequest){
+        Optional<Produto>produtoExistente = produtoRepository.findByNomeProduto(produtoRequest.getNomeProduto());
 
         if(produtoExistente.isPresent()){
             throw new RuntimeException("Produto existente");
         }
 
         Produto produto = new Produto();
-        produto.setNomeProduto(produto.getNomeProduto());
+        produto.setNomeProduto(produtoRequest.getNomeProduto());
         produto.setDescricaoProduto(produtoRequest.getDescricaoProduto());
         produto.setPreco(produtoRequest.getPreco());
         produto.setImgUrl(produtoRequest.getImgUrl());
+
+        produtoRepository.save(produto);
 
         ProdutoResponse produtoResponse = new ProdutoResponse(
 
@@ -43,7 +45,7 @@ public class ProdutoService {
         return produtoResponse;
     }
 
-    //Get All
+
     public List<ProdutoResponse> listarProdutos(){
 
         List<Produto> produtos = produtoRepository.findAll();
@@ -58,7 +60,7 @@ public class ProdutoService {
     }
 
 
-    //Get by id
+
 
     public ProdutoResponse listarporId(Integer id){
 
