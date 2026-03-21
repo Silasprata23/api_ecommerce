@@ -19,10 +19,6 @@ public class PedidoService {
 
 
 
-
-
-
-    //Get By Id
     public PedidoResponse buscarPedidos(Integer id){
 
         Pedido pedido = pedidoRepository.findById(id).orElseThrow(()-> new RuntimeException("Pedido não encontrado"));
