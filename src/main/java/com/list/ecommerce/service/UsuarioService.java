@@ -3,6 +3,7 @@ package com.list.ecommerce.service;
 import com.list.ecommerce.DTOs.Request.UsuarioRequest;
 import com.list.ecommerce.DTOs.Response.UsuarioResponse;
 import com.list.ecommerce.entity.Usuario;
+import com.list.ecommerce.enums.Role;
 import com.list.ecommerce.repository.UsuarioRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -31,6 +32,7 @@ public class UsuarioService {
         usuario.setNome(usuarioRequest.getNome());
         usuario.setTelefone(usuarioRequest.getTelefone());
         usuario.setSenha(usuarioRequest.getSenha());
+        usuario.setRoles(Role.ROLE_USER);
 
         usuarioRepository.save(usuario);
 
