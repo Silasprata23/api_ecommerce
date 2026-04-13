@@ -3,12 +3,10 @@ package com.list.ecommerce.controller;
 import com.list.ecommerce.DTOs.Response.PedidoResponse;
 import com.list.ecommerce.service.PedidoService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-@RestController("/Pedido")
+@RestController
+@RequestMapping("/Pedido")
 public class PedidoController {
 
     private final PedidoService pedidoService;
