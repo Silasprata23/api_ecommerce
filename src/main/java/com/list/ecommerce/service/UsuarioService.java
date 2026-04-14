@@ -6,6 +6,7 @@ import com.list.ecommerce.entity.Usuario;
 import com.list.ecommerce.enums.Role;
 import com.list.ecommerce.repository.UsuarioRepository;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,9 +17,11 @@ public class UsuarioService {
 
 
     private final UsuarioRepository usuarioRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public UsuarioService(UsuarioRepository usuarioRepository) {
+    public UsuarioService(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder) {
         this.usuarioRepository = usuarioRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     //Post
@@ -28,19 +31,20 @@ public class UsuarioService {
             throw new RuntimeException("Email ja registrado");
         }
         Usuario usuario = new Usuario();
-        usuario.setEmail(usuarioRequest.getEmail());
+
         usuario.setNome(usuarioRequest.getNome());
+        usuario.setEmail(usuarioRequest.getEmail());
+        usuario.setSenha(passwordEncoder.encode(usuarioRequest.getSenha()));
         usuario.setTelefone(usuarioRequest.getTelefone());
-        usuario.setSenha(usuarioRequest.getSenha());
         usuario.setRoles(Role.ROLE_USER);
 
         usuarioRepository.save(usuario);
 
         UsuarioResponse usuarioResponse = new UsuarioResponse(
                 usuario.getId(),
-                usuario.getTelefone(),
                 usuario.getNome(),
                 usuario.getEmail(),
+                usuario.getTelefone(),
                 usuario.getPedidos()
         );
         return usuarioResponse;
