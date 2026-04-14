@@ -25,7 +25,6 @@ public class UsuarioRequest {
     private String email;
     @NotBlank(message = "O campo não pode estar vazio")
     private String senha;
-    private List<Role> roles;
     private String telefone;
     private List<Pedido> pedidos = new ArrayList<>();
 }
