@@ -1,13 +1,17 @@
 package com.list.ecommerce.service;
 
+import com.list.ecommerce.DTOs.Request.LoginRequest;
 import com.list.ecommerce.DTOs.Request.UsuarioRequest;
 import com.list.ecommerce.DTOs.Response.UsuarioResponse;
 import com.list.ecommerce.entity.Usuario;
 import com.list.ecommerce.enums.Role;
 import com.list.ecommerce.repository.UsuarioRepository;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,13 +22,31 @@ public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
     private final PasswordEncoder passwordEncoder;
+    private final AuthenticationManager authManager;
+    private final JwtService jwtService;
 
-    public UsuarioService(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder) {
+    public UsuarioService(UsuarioRepository usuarioRepository, PasswordEncoder passwordEncoder, AuthenticationManager authManager, JwtService jwtService) {
         this.usuarioRepository = usuarioRepository;
         this.passwordEncoder = passwordEncoder;
+        this.authManager = authManager;
+        this.jwtService = jwtService;
     }
 
-    //Post
+
+    public String login(@RequestBody LoginRequest loginRequest){
+    authManager.authenticate(
+            new UsernamePasswordAuthenticationToken(
+                    loginRequest.getEmail(),
+                    loginRequest.getSenha()
+            )
+    );
+    return jwtService.gerarToken(loginRequest.getEmail());
+    }
+
+
+
+
+
     public UsuarioResponse criarUsuario(UsuarioRequest usuarioRequest) {
         Optional<Usuario> usuarioExistente = usuarioRepository.findByEmail(usuarioRequest.getEmail());
         if (usuarioExistente.isPresent()) {

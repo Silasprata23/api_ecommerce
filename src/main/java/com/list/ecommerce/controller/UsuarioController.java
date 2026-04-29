@@ -1,7 +1,9 @@
 package com.list.ecommerce.controller;
 
+import com.list.ecommerce.DTOs.Request.LoginRequest;
 import com.list.ecommerce.DTOs.Request.UsuarioRequest;
 import com.list.ecommerce.DTOs.Response.UsuarioResponse;
+import com.list.ecommerce.service.JwtService;
 import com.list.ecommerce.service.UsuarioService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,9 +16,20 @@ public class UsuarioController {
 
     private final UsuarioService usuarioService;
 
+
     public UsuarioController(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
+
     }
+
+
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest){
+        return ResponseEntity.ok(usuarioService.login(loginRequest));
+    }
+
+
+
 
     @PostMapping(value = "/criarUsuario")
     public ResponseEntity<?> criarUsuario(@RequestBody UsuarioRequest usuarioRequest){
