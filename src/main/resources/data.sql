@@ -1,77 +1,104 @@
--- =========================
--- CATEGORIAS
--- =========================
+-- =========================================
+-- POPULANDO TABELA USUARIO
+-- =========================================
 
+INSERT INTO usuario (nome, email, senha, telefone, roles) VALUES
+                                                              ('João Silva', 'joao@gmail.com', '123456', '11999990001', 'ROLE_USER'),
+                                                              ('Maria Oliveira', 'maria@gmail.com', '123456', '11999990002', 'ROLE_USER'),
+                                                              ('Carlos Souza', 'carlos@gmail.com', '123456', '11999990003', 'ROLE_ADMIN'),
+                                                              ('Ana Costa', 'ana@gmail.com', '123456', '11999990004', 'ROLE_USER');
 
--- =========================
--- PRODUTOS
--- =========================
-INSERT INTO produto (id_produto, descricao_produto, img_url, nome_produto, preco) VALUES
-                                                                                      (1, 'Smartphone Android', 'img1.jpg', 'Celular Samsung A54', 1999.90),
-                                                                                      (2, 'Notebook gamer', 'img2.jpg', 'Notebook Dell G15', 5599.00),
-                                                                                      (3, 'Camiseta algodão', 'img3.jpg', 'Camiseta Básica', 49.90),
-                                                                                      (4, 'Tênis esportivo', 'img4.jpg', 'Nike Air Zoom', 399.90),
-                                                                                      (5, 'Livro de programação', 'img5.jpg', 'Java para Iniciantes', 89.90),
-                                                                                      (6, 'Controle PS5', 'img6.jpg', 'DualSense', 349.90),
-                                                                                      (7, 'Cadeira gamer', 'img7.jpg', 'Cadeira ThunderX3', 899.90),
-                                                                                      (8, 'Bola de futebol', 'img8.jpg', 'Adidas Pro', 129.90),
-                                                                                      (9, 'Smart TV 50"', 'img9.jpg', 'LG UHD 4K', 2799.90),
-                                                                                      (10, 'Fone Bluetooth', 'img10.jpg', 'JBL Tune 510BT', 199.90);
+-- =========================================
+-- POPULANDO TABELA CATEGORIA
+-- =========================================
 
--- =========================
--- RELAÇÃO PRODUTO-CATEGORIA
--- =========================
+INSERT INTO categoria (nome_categoria) VALUES
+                                           ('Eletrônicos'),
+                                           ('Informática'),
+                                           ('Livros'),
+                                           ('Games'),
+                                           ('Periféricos');
+
+-- =========================================
+-- POPULANDO TABELA PRODUTO
+-- =========================================
+
+INSERT INTO produto (nome_produto, descricao_produto, img_url, preco) VALUES
+                                                                          (
+                                                                              'Notebook Dell',
+                                                                              'Notebook Dell Inspiron i7 16GB RAM',
+                                                                              'https://images.com/notebook-dell.jpg',
+                                                                              4500.00
+                                                                          ),
+                                                                          (
+                                                                              'Mouse Gamer',
+                                                                              'Mouse RGB 7200 DPI',
+                                                                              'https://images.com/mouse-gamer.jpg',
+                                                                              150.00
+                                                                          ),
+                                                                          (
+                                                                              'Teclado Mecânico',
+                                                                              'Teclado mecânico RGB ABNT2',
+                                                                              'https://images.com/teclado.jpg',
+                                                                              350.00
+                                                                          ),
+                                                                          (
+                                                                              'PlayStation 5',
+                                                                              'Console Sony PlayStation 5',
+                                                                              'https://images.com/ps5.jpg',
+                                                                              4200.00
+                                                                          ),
+                                                                          (
+                                                                              'Livro Clean Code',
+                                                                              'Livro de boas práticas em programação',
+                                                                              'https://images.com/clean-code.jpg',
+                                                                              120.00
+                                                                          );
+
+-- =========================================
+-- RELACIONAMENTO PRODUTO x CATEGORIA
+-- =========================================
+
 INSERT INTO tb_produto_categoria (produto_id, categoria_id) VALUES
                                                                 (1, 1),
-                                                                (2, 1),
-                                                                (3, 2),
-                                                                (4, 6),
-                                                                (5, 3),
-                                                                (6, 4),
-                                                                (7, 1),
-                                                                (8, 6),
-                                                                (9, 1),
-                                                                (10, 1);
+                                                                (1, 2),
+                                                                (2, 5),
+                                                                (3, 5),
+                                                                (4, 4),
+                                                                (5, 3);
 
--- =========================
--- USUÁRIOS
--- =========================
-INSERT INTO usuario (id, email, nome, roles, senha, telefone) VALUES
-                                                                  (1, 'admin@email.com', 'Admin', 'ROLE_ADMIN', '123456', '11999999999'),
-                                                                  (2, 'joao@email.com', 'João Silva', 'ROLE_USER', '123456', '11988888888'),
-                                                                  (3, 'maria@email.com', 'Maria Souza', 'ROLE_USER', '123456', '11977777777'),
-                                                                  (4, 'carlos@email.com', 'Carlos Lima', 'ROLE_USER', '123456', '11966666666'),
-                                                                  (5, 'ana@email.com', 'Ana Paula', 'ROLE_USER', '123456', '11955555555');
+-- =========================================
+-- POPULANDO TABELA PEDIDO
+-- STATUS:
+-- 0 = AGUARDANDO_PAGAMENTO
+-- 1 = PAGO
+-- 2 = ENVIADO
+-- 3 = ENTREGUE
+-- 4 = CANCELADO
+-- =========================================
 
--- =========================
--- PEDIDOS
--- =========================
-INSERT INTO pedido (id_pedido, momento_pedido, status, cliente_id) VALUES
-                                                                       (1, NOW(), 'PENDENTE', 2),
-                                                                       (2, NOW(), 'PAGO', 3),
-                                                                       (3, NOW(), 'ENVIADO', 4),
-                                                                       (4, NOW(), 'ENTREGUE', 5),
-                                                                       (5, NOW(), 'CANCELADO', 2);
+INSERT INTO pedido (momento_pedido, status, cliente_id) VALUES
+                                                            ('2026-05-15 10:00:00', 1, 1),
+                                                            ('2026-05-15 11:30:00', 0, 2),
+                                                            ('2026-05-15 14:20:00', 2, 3);
 
--- =========================
--- ITENS DO PEDIDO
--- =========================
-INSERT INTO item_do_pedido (preco, quantidade, id_pedido, id_produto) VALUES
-                                                                          (1999.90, 1, 1, 1),
-                                                                          (49.90, 2, 1, 3),
-                                                                          (5599.00, 1, 2, 2),
-                                                                          (349.90, 1, 2, 6),
-                                                                          (399.90, 1, 3, 4),
-                                                                          (89.90, 1, 3, 5),
-                                                                          (129.90, 3, 4, 8),
-                                                                          (2799.90, 1, 4, 9),
-                                                                          (199.90, 2, 5, 10),
-                                                                          (49.90, 1, 5, 3);
+-- =========================================
+-- POPULANDO ITEM_DO_PEDIDO
+-- =========================================
 
--- =========================
--- PAGAMENTOS
--- =========================
+INSERT INTO item_do_pedido (id_pedido, id_produto, quantidade, preco) VALUES
+                                                                          (1, 1, 1, 4500.00),
+                                                                          (1, 2, 2, 150.00),
+
+                                                                          (2, 5, 1, 120.00),
+
+                                                                          (3, 4, 1, 4200.00),
+                                                                          (3, 3, 1, 350.00);
+
+-- =========================================
+-- POPULANDO PAGAMENTO
+-- =========================================
+
 INSERT INTO pagamento (pedido_id_pedido, momento_pagamento) VALUES
-                                                                (2, NOW()),
-                                                                (3, NOW()),
-                                                                (4, NOW());
+                                                                (1, '2026-05-15 10:10:00'),
+                                                                (3, '2026-05-15 14:35:00');

@@ -32,7 +32,7 @@ public class UsuarioController {
 
 
     @PostMapping(value = "/criarUsuario")
-    public ResponseEntity<?> criarUsuario(@RequestBody UsuarioRequest usuarioRequest){
+    public ResponseEntity<UsuarioRequest> criarUsuario(@RequestBody UsuarioRequest usuarioRequest){
         return ResponseEntity.ok(usuarioService.criarUsuario(usuarioRequest));
 
     }

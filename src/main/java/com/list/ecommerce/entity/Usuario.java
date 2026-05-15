@@ -27,6 +27,7 @@ public class Usuario {
     private String senha;
     @Enumerated(EnumType.STRING)
     private Role roles;
+    private String imgUrl;
 
     @OneToMany(mappedBy = "cliente")
     private List<Pedido> pedidos = new

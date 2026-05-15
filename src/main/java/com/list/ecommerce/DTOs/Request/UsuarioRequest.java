@@ -26,5 +26,6 @@ public class UsuarioRequest {
     @NotBlank(message = "O campo não pode estar vazio")
     private String senha;
     private String telefone;
+    private String imgURl;
     private List<Pedido> pedidos = new ArrayList<>();
 }

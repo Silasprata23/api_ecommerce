@@ -67,6 +67,7 @@ public class UsuarioService {
                 usuario.getNome(),
                 usuario.getEmail(),
                 usuario.getTelefone(),
+                usuario.getImgUrl(),
                 usuario.getPedidos()
         );
         return usuarioResponse;
@@ -80,6 +81,7 @@ public class UsuarioService {
                 usuario.getNome(),
                 usuario.getEmail(),
                 usuario.getTelefone(),
+                usuario.getImgUrl(),
                 usuario.getPedidos()
         )).toList();
     }
@@ -92,6 +94,7 @@ public class UsuarioService {
                 usuario.getNome(),
                 usuario.getEmail(),
                 usuario.getTelefone(),
+                usuario.getImgUrl(),
                 usuario.getPedidos()
         );
     }
@@ -115,6 +118,7 @@ public class UsuarioService {
                 usuario.getNome(),
                 usuario.getTelefone(),
                 usuario.getEmail(),
+                usuario.getImgUrl(),
                 usuario.getPedidos()
         );
           return usuarioResponse;
