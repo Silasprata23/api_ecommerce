@@ -59,6 +59,7 @@ public class UsuarioService {
         usuario.setSenha(passwordEncoder.encode(usuarioRequest.getSenha()));
         usuario.setTelefone(usuarioRequest.getTelefone());
         usuario.setRoles(Role.ROLE_USER);
+        usuario.setImgUrl(usuarioRequest.getImgUrl());
 
         usuarioRepository.save(usuario);
 

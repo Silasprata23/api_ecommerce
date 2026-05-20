@@ -12,7 +12,7 @@ import java.util.UUID;
 @Service
 public class FotoService {
 
-    @Value("Fotos")
+    @Value("${upload.dir}")
     private String upload;
 
     public String saveFoto (MultipartFile foto ) throws IOException{
